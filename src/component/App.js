@@ -1,30 +1,38 @@
 import React from 'react';
-// import Display from './Display';
-import Matt from './Matt';
+// import Matt from './Matt';
 import Table from './Table/Table';
-// import ButtonPanel from './ButtonPanel';
-import calculate from '../logic/calculate';
+// import calculate from '../logic/calculate';
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      total: null,
-      next: null,
+      total    : null,
+      next     : null,
       operation: null,
     };
   }
 
-  handleClick = (buttonName) => {
-    this.setState(calculate(this.state, buttonName));
-  }
+  // handleClick = (buttonName) => {
+  //   this.setState(calculate(this.state, buttonName));
+  // }
 
   render() {
+
+    let cols = [
+        { key: 'firstName', label: 'First Name' },
+        { key: 'lastName', label: 'Last Name' }
+    ];
+
+    let data = [
+        { id: 1, firstName: 'John', lastName: 'Doe' },
+        { id: 2, firstName: 'Clark', lastName: 'Kent' }
+    ];
+
     return (
       <div className="component-app">
-        <Matt name="AC" clickHandler={this.handleClick} />
-        <Table name="table-1" clickHandler={this.handleClick} />
+        <Table cols={cols} data={data} name="table-1" clickHandler={this.handleClick} />
       </div>
     );
   }
