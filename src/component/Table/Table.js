@@ -6,70 +6,37 @@ class Table extends React.Component {
   constructor(props) {
     super(props);
     
-    this.cols = [
-        { key: 'firstName', label: 'First Name' },
-        { key: 'lastName', label: 'Last Name' }
-    ];
-
-    this.data = [
-        { id: 1, firstName: 'John', lastName: 'Doe' },
-        { id: 2, firstName: 'Clark', lastName: 'Kent' }
-    ];
-
-    this.state = {
-      cols: this.cols,
-      data: this.data,
-    };
-
     this.generateHeaders = ()=> {
-        var cols = this.props.cols;  // [{key, label}]
-
-
-        console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
-        console.log('cols: ');
-        console.log(cols);
-        console.log('|------------------------------------------------------------------------------------------------|')
-        
-        
-
-        // generate our header (th) cell components
-        return cols.map(function(colData) {
+        return this.props.cols.map(function(colData) {
             return <th key={colData.key}> {colData.label} </th>;
         });
     };
 
-    // generateRows = ()=> {
-    //     var cols = this.props.cols,  // [{key, label}]
-    //         data = this.props.data;
+    this.generateRows = ()=> {
+        let cols = this.props.cols;
+        let data = this.props.data;
 
-    //     return data.map(function(item) {
-    //         // handle the column data within each row
-    //         var cells = cols.map(function(colData) {
+        return data.map(function(item) {
+            // handle the column data within each row
+            var cells = cols.map(function(colData) {
 
-    //             // colData.key might be "firstName"
-    //             return <td> {item[colData.key]} </td>;
-    //         });
-    //         return <tr key={item.id}> {cells} </tr>;
-    //     });
-    // }  
+                // colData.key might be "firstName"
+                return <td> {item[colData.key]} </td>;
+            });
+            return <tr key={item.id}> {cells} </tr>;
+        });
+    };
 
   }
 
   render() {
       let headerComponents = this.generateHeaders();
-
-      console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
-      console.log('headerComponents: ');
-      console.log(headerComponents);
-      console.log('|------------------------------------------------------------------------------------------------|')
-      
-      
-      // let rowComponents    = this.generateRows();
+      let rowComponents    = this.generateRows();
 
       return (
           <table className="zui-table">
               <thead> {headerComponents} </thead>
-              <tbody> {} </tbody>
+              <tbody> {rowComponents} </tbody>
           </table>
       );
   }
