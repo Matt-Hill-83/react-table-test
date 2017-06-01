@@ -2,10 +2,8 @@ import React from 'react';
 import './Table.css';
 
 class Table extends React.Component {
-
   constructor(props) {
     super(props);
-    // this.handleClick = this.props.clickHandler;
     
     this.handleClick = () => {
       this.props.clickHandler(this.props.name);
@@ -13,7 +11,7 @@ class Table extends React.Component {
 
     this.generateHeaders = ()=> {
       let cells = this.props.cols.map(function(colData) {
-        return <th key={colData.key}> {colData.label} </th>;
+        return <th key={colData.id}> {colData.label} </th>;
       });
 
       return <tr> {cells} </tr>;
@@ -32,8 +30,8 @@ class Table extends React.Component {
         console.log('|------------------------------------------------------------------------------------------------|')
         
         
-        let cells = cols.map((colData) =>{
-          return <td name="testname" onClick={that.handleClick}> {item[colData.key]} </td>;
+        let cells = cols.map((colData, index) =>{
+          return <td key="index" name="testname" onClick={that.handleClick}> {item[colData.id]} </td>;
         });
 
         return <tr key={item.id}> {cells} </tr>;

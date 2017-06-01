@@ -15,30 +15,13 @@ class App extends React.Component {
   }
 
   handleClick = buttonName => {
-
-    console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
-    console.log('buttonName: ');
-    console.log(buttonName);
-    console.log('|------------------------------------------------------------------------------------------------|')
-    
-    let equals = buttonName === 'testname';
-
-
-    console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
-    console.log('equals: ');
-    console.log(equals);
-    console.log('|------------------------------------------------------------------------------------------------|')
-    
-    
-
     // this.setState(calculate(this.state, buttonName));
-    
   }
 
   render() {
     let cols = [
-        { key: 'firstName', label: 'First Name' },
-        { key: 'lastName', label: 'Last Name' }
+        { id: 'firstName', label: 'First Name' },
+        { id: 'lastName', label: 'Last Name' }
     ];
 
     let data = [
