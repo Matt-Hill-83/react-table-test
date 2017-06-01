@@ -14,12 +14,18 @@ class App extends React.Component {
     };
   }
 
-  handleClick = (buttonName) => {
+  handleClick = buttonName => {
     this.setState(calculate(this.state, buttonName));
+
+    console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
+    console.log('buttonName: ');
+    console.log(buttonName);
+    console.log('|------------------------------------------------------------------------------------------------|')
+    
+    
   }
 
   render() {
-
     let cols = [
         { key: 'firstName', label: 'First Name' },
         { key: 'lastName', label: 'Last Name' }
