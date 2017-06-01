@@ -27,15 +27,17 @@ class Table extends React.Component {
   }
 
   render() {
-      // let headerComponents = this.generateHeaders();
-      // let rowComponents    = this.generateRows();
+    return (
+        <table className="matt-table">
+            <thead> 
+              <tr>
+                {this.generateHeaders()}
+              </tr>
+            </thead>
 
-      return (
-          <table className="matt-table">
-              <thead> {this.generateHeaders()} </thead>
-              <tbody> {this.generateRows()} </tbody>
-          </table>
-      );
+            <tbody> {this.generateRows()} </tbody>
+        </table>
+    );
   }
 
 }
