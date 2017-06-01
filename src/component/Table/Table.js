@@ -12,30 +12,28 @@ class Table extends React.Component {
     };
 
     this.generateRows = ()=> {
-        let cols = this.props.cols;
-        let data = this.props.data;
+      let cols = this.props.cols;
+      let data = this.props.data;
 
-        return data.map(function(item) {
-            // handle the column data within each row
-            var cells = cols.map(function(colData) {
+      return data.map(function(item) {
+          var cells = cols.map(function(colData) {
+            return <td> {item[colData.key]} </td>;
+          });
 
-                // colData.key might be "firstName"
-                return <td> {item[colData.key]} </td>;
-            });
-            return <tr key={item.id}> {cells} </tr>;
-        });
+          return <tr key={item.id}> {cells} </tr>;
+      });
     };
 
   }
 
   render() {
-      let headerComponents = this.generateHeaders();
-      let rowComponents    = this.generateRows();
+      // let headerComponents = this.generateHeaders();
+      // let rowComponents    = this.generateRows();
 
       return (
           <table className="matt-table">
-              <thead> {headerComponents} </thead>
-              <tbody> {rowComponents} </tbody>
+              <thead> {this.generateHeaders()} </thead>
+              <tbody> {this.generateRows()} </tbody>
           </table>
       );
   }

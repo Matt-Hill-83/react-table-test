@@ -1,7 +1,7 @@
 import React from 'react';
 // import Matt from './Matt';
 import Table from './Table/Table';
-// import calculate from '../logic/calculate';
+import calculate from '../logic/calculate';
 import './App.css';
 
 class App extends React.Component {
@@ -14,9 +14,9 @@ class App extends React.Component {
     };
   }
 
-  // handleClick = (buttonName) => {
-  //   this.setState(calculate(this.state, buttonName));
-  // }
+  handleClick = (buttonName) => {
+    this.setState(calculate(this.state, buttonName));
+  }
 
   render() {
 
