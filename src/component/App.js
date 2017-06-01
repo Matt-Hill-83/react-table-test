@@ -15,13 +15,23 @@ class App extends React.Component {
   }
 
   handleClick = buttonName => {
-    this.setState(calculate(this.state, buttonName));
 
     console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
     console.log('buttonName: ');
     console.log(buttonName);
     console.log('|------------------------------------------------------------------------------------------------|')
     
+    let equals = buttonName === 'testname';
+
+
+    console.log('|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|');
+    console.log('equals: ');
+    console.log(equals);
+    console.log('|------------------------------------------------------------------------------------------------|')
+    
+    
+
+    // this.setState(calculate(this.state, buttonName));
     
   }
 
