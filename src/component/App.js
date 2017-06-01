@@ -1,7 +1,7 @@
 import React from 'react';
 // import Display from './Display';
 import Matt from './Matt';
-import Table from './Table';
+import Table from './Table/Table';
 // import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 import './App.css';
