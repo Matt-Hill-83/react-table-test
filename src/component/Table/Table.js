@@ -31,7 +31,7 @@ class Table extends React.Component {
         
         
         let cells = cols.map((colData, index) =>{
-          return <td key="index" name="testname" onClick={that.handleClick}> {item[colData.id]} </td>;
+          return <td key={index} name="testname" onClick={that.handleClick}> {item[colData.id]} </td>;
         });
 
         return <tr key={item.id}> {cells} </tr>;
