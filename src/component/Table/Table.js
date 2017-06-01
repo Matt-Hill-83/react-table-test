@@ -6,21 +6,23 @@ class Table extends React.Component {
     super(props);
     
     this.generateHeaders = ()=> {
-        return this.props.cols.map(function(colData) {
-            return <th key={colData.key}> {colData.label} </th>;
-        });
-    };
+      let cells = this.props.cols.map(function(colData) {
+        return <th key={colData.key}> {colData.label} </th>;
+      });
 
+      return <tr> {cells} </tr>;
+    };
+    
     this.generateRows = ()=> {
       let cols = this.props.cols;
       let data = this.props.data;
 
       return data.map(function(item) {
-          var cells = cols.map(function(colData) {
-            return <td> {item[colData.key]} </td>;
-          });
+        let cells = cols.map(function(colData) {
+          return <td> {item[colData.key]} </td>;
+        });
 
-          return <tr key={item.id}> {cells} </tr>;
+        return <tr key={item.id}> {cells} </tr>;
       });
     };
 
@@ -29,12 +31,7 @@ class Table extends React.Component {
   render() {
     return (
         <table className="matt-table">
-            <thead> 
-              <tr>
-                {this.generateHeaders()}
-              </tr>
-            </thead>
-
+            <thead> {this.generateHeaders()} </thead>
             <tbody> {this.generateRows()} </tbody>
         </table>
     );
